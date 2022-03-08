@@ -6,8 +6,8 @@ namespace ariel{
 
 	string mat(int w, int h, char c1, char c2){
 
-		str1 = "";
-		str2 = "";
+		string str1 = "";
+		string str2 = "";
 		for(int i = 0; i<w; i++){
 			str1 = str1 + c1;
 			str2 = str2 + c2;
@@ -19,7 +19,7 @@ namespace ariel{
 		bool line = true;
 		
 		for(int i = 0; i<min((h-1)/2, (w-1)/2); i++){
-			string s = ""
+			string s = "";
 			if(line)
 				s = str1;
 			else
@@ -42,7 +42,7 @@ namespace ariel{
 			rowsDone += 1;
 			line = !line;
 		}
-		while(rowsDone < max((h+1)/2,(w+1)/2)):
+		while(rowsDone < (h+1)/2){
 			string s = "";
 			if(line)
 				s = str1;
@@ -50,6 +50,7 @@ namespace ariel{
 				s = str2;
 			top = top + s + "\n";
 			rowsDone += 1;
+		}
 	
 	return top + bot;
 	
