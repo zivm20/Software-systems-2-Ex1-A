@@ -43,6 +43,24 @@ TEST_CASE("Good input") {
 
 TEST_CASE("Bad input") {
     CHECK_THROWS(mat(10, 5, '$', '%'));
+	CHECK_THROWS(mat(10, 6, '$', '%'));
+	CHECK_THROWS(mat(9, 6, '$', '%'));
+	
+	CHECK_THROWS(mat(9, -5, '$', '%'));
+	CHECK_THROWS(mat(-9, 5, '$', '%'));
+	CHECK_THROWS(mat(-9, -5, '$', '%'));
+	
+	CHECK_THROWS(mat(10, -5, '$', '%'));
+	CHECK_THROWS(mat(-10, 5, '$', '%'));
+	CHECK_THROWS(mat(-10, -5, '$', '%'));
+	
+	CHECK_THROWS(mat(9, -6, '$', '%'));
+	CHECK_THROWS(mat(-9, 6, '$', '%'));
+	CHECK_THROWS(mat(-9, -6, '$', '%'));
+	
+	CHECK_THROWS(mat(10, -6, '$', '%'));
+	CHECK_THROWS(mat(-10, 6, '$', '%'));
+	CHECK_THROWS(mat(-10, -6, '$', '%'));
     /* Add more test here */
 }
 
