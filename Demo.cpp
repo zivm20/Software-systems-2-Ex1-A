@@ -31,7 +31,9 @@ int main() {
 @@@@@@@@@@@@@
 */
 
-	cout << ariel::mat(1, 5, '@', '-') << endl; 
+	cout << ariel::mat(1, 5, '@', '-') << endl;
+	cout << ariel::mat(5, 1, '@', '-') << endl;
+	cout << ariel::mat(5, 1, '@', '-') << endl;
 	cout << ariel::mat(1, 1, '@', '-') << endl;
 	cout << ariel::mat(5, 5, '@', '-') << endl; 
 	cout << ariel::mat(3, 15, '@', '-') << endl; 
