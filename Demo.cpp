@@ -30,6 +30,19 @@ int main() {
 @-----------@
 @@@@@@@@@@@@@
 */
+
+	cout << ariel::mat(1, 5, '@', '-') << endl; 
+	cout << ariel::mat(1, 1, '@', '-') << endl;
+	cout << ariel::mat(5, 5, '@', '-') << endl; 
+	cout << ariel::mat(3, 15, '@', '-') << endl; 
+	cout << ariel::mat(15, 3, '@', '-') << endl;
+	cout << ariel::mat(15, 9, '@', '-') << endl;
+	cout << ariel::mat(9, 15, '@', '-') << endl;
+	cout << ariel::mat(13, 5, '&', '-') << endl; 
+	cout << ariel::mat(13, 5, '@', '.') << endl;
+	cout << ariel::mat(13, 5, '=', '.') << endl; 
+	
+
 	try {
 		cout << ariel::mat(10, 5, '$', '%') << endl; // Exception - not a valid code
 	} catch (exception& ex) {

@@ -4,7 +4,7 @@
  * 
  * IMPORTANT: Please write more tests - the tests here are only for example and are not complete.
  *
- * AUTHORS: <Please write your names here>
+ * AUTHORS: Ziv Morgan
  * 
  * Date: 2021-02
  */
@@ -61,6 +61,18 @@ TEST_CASE("Bad input") {
 	CHECK_THROWS(mat(10, -6, '$', '%'));
 	CHECK_THROWS(mat(-10, 6, '$', '%'));
 	CHECK_THROWS(mat(-10, -6, '$', '%'));
+
+	CHECK_THROWS(mat(9, 5, '\r', '%'));
+	CHECK_THROWS(mat(9, 5, '\t', '%'));
+	CHECK_THROWS(mat(9, 5, '\n', '%'));
+	CHECK_THROWS(mat(9, 5, ' ', '%'));
+
+	CHECK_THROWS(mat(9, 5, '%', '\r'));
+	CHECK_THROWS(mat(9, 5, '%', '\t'));
+	CHECK_THROWS(mat(9, 5, '%', '\n'));
+	CHECK_THROWS(mat(9, 5, '%', ' '));
+
+	CHECK_THROWS(mat(9, 5, ' ', ' '));
     /* Add more test here */
 }
 
