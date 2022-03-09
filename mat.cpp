@@ -5,6 +5,7 @@ using namespace std;
 namespace ariel{
 
 	string mat(int w, int h, char c1, char c2){
+		//throw error messages for invalid input
 		if(w<=0 || h<=0){
 			throw std::invalid_argument("Width and height must be > 0");
 		}
@@ -14,7 +15,9 @@ namespace ariel{
 		if(c2 == ' ' || c2 == '\t' ||c2 == '\n' ||c2 == '\r' || c1 == ' ' || c1 == '\t' ||c1 == '\n' ||c1 == '\r'){
 			throw std::invalid_argument("Invalid character input");
 		}
-			
+		
+		//make a string of that represents a single line in an WxH matrix of all the chars c1 and 
+		//a single line in an WxH matrix of all the chars c2
 		string str1;
 		string str2;
 		for(int i = 0; i<w; i++){
@@ -23,8 +26,12 @@ namespace ariel{
 		}
 		string top;
 		string bot;
+		
+		//choose desired line from matrix 1 or 2
 		bool line = true;
 		
+		//add a line from mat1 then from mat2 alternating between the 2
+		//notice the desired mat is mirrored so we make the top and bottom at the same time
 		for(int i = 0; i<(h-1)/2; i++){
 			string s;
 			if(line){
@@ -44,6 +51,25 @@ namespace ariel{
 				bot = s;
 			}
 
+			//this step changes the 2 mats from fully made out of 1 char to something like this:
+			/*
+			$$$$$ <- 1st line in mat
+			$-$-$
+			$-$-$ <- 3rd line in mat
+			$-$-$
+			$$$$$ <- 5th line in mat
+
+			and 
+
+			$---$
+			$---$ <- 2nd line in mat
+			$-$-$
+			$---$ <- 4th line in mat
+			$---$
+
+			we then take lines from each mat alternating between the 2
+			*/
+
 			if(i<(w+1)/2){
 				if(line){
 					str2[i] = c1;
@@ -57,6 +83,7 @@ namespace ariel{
 			line = !line;
 		}
 		
+		//we have an odd number of rows so we just add the middle row
 		string s;
 		if(line){
 			s = str1;
@@ -66,10 +93,11 @@ namespace ariel{
 			s = str2;
 		}
 		s+="\n";
-		top = top + s;
+		top += s;
 		
-	
-	return top + bot;
+	//combine the 2 together
+	top+=bot;
+	return top;
 	
 	}
 
