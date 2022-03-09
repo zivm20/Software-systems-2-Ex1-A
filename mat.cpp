@@ -18,29 +18,30 @@ namespace ariel{
 		string str1;
 		string str2;
 		for(int i = 0; i<w; i++){
-			str1 = str1 + c1;
-			str2 = str2 + c2;
+			str1 += c1;
+			str2 += c2;
 		}
-		
-		int rowsDone = 0;
-		string top = "";
-		string bot = "";
+		string top;
+		string bot;
 		bool line = true;
 		
 		for(int i = 0; i<(h-1)/2; i++){
-			string s = "";
+			string s;
 			if(line){
 				s = str1;
 			}
 			else{
 				s = str2;
 			}
-			top = top + s + "\n";
+			top += s;
+			top += "\n";
 			if(i != 0){
-				bot = s + "\n"+ bot;
+				s+="\n";
+				s += bot;
+				bot = s;	
 			}
 			else{
-				bot = s + "\n";
+				bot = s;
 			}
 
 			if(i<(w+1)/2){
@@ -53,19 +54,19 @@ namespace ariel{
 					str1[w-1-i] = c2;
 				}
 			}
-			rowsDone += 1;
 			line = !line;
 		}
 		
-		string s = "";
+		string s;
 		if(line){
 			s = str1;
+			
 		}
 		else{
 			s = str2;
 		}
-		top = top + s + "\n";
-		rowsDone += 1;
+		s+="\n";
+		top = top + s;
 		
 	
 	return top + bot;
