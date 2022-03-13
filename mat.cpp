@@ -12,7 +12,11 @@ namespace ariel{
 		if(w%2==0 || h%2==0){
 			throw std::invalid_argument("Width and height must be odd");
 		}	
+<<<<<<< HEAD
 		if(c1 < MIN_CHAR_VAL || c1 > MAX_CHAR_VAL || c2 < MIN_CHAR_VAL || c2 > MAX_CHAR_VAL  ){
+=======
+		if(c1 < 33 || c1 > 126 || c2 < 33 || c2 > 126  ){
+>>>>>>> 156f3dcb9f432583542d71f169ebad21d72b7a51
 			throw std::invalid_argument("Invalid character input");
 		}
 		
