@@ -3,7 +3,7 @@
 using namespace std;
 
 namespace ariel{
-
+	const int MAX_CHAR_VAL = 126, MIN_CHAR_VAL = 33;
 	string mat(int w, int h, char c1, char c2){
 		//throw error messages for invalid input
 		if(w<=0 || h<=0){
@@ -12,7 +12,7 @@ namespace ariel{
 		if(w%2==0 || h%2==0){
 			throw std::invalid_argument("Width and height must be odd");
 		}	
-		if(c1 < 33 || c1 > 126 || c1 < 33 || c2 > 126  ){
+		if(c1 < MIN_CHAR_VAL || c1 > MAX_CHAR_VAL || c2 < MIN_CHAR_VAL || c2 > MAX_CHAR_VAL  ){
 			throw std::invalid_argument("Invalid character input");
 		}
 		
